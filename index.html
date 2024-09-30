@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Aurum Innovations | IT Consultancy</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <!-- Header -->
 <header>
     <div class="logo">
-        <h1>Aurum Innovations</h1>
+        <img id="logo-img" src="img/logo-aurum.png" />
     </div>
     <nav>
         <ul>
@@ -30,10 +30,11 @@
 <section id="hero">
     <div class="hero-content">
         <h2>Inspire Innovation with Aurum Innovations</h2>
-        <p>Your trusted partner in transforming businesses with top-tier IT solutions.</p>
+        <p>Your trusted partner in transforming businesses with top-tier IT solutions. Let’s build the future together.</p>
         <a href="#contact" class="cta-button">Get Started</a>
     </div>
 </section>
+
 
 
 
@@ -47,21 +48,21 @@
             <h3>Enterprise Software Development</h3>
             <p>We develop custom enterprise-grade software that optimizes workflows, enhances user experiences, and scales with your business needs. Our solutions are architected for reliability, security, and performance.</p>   
         </div>
-        <img src="data-management.png" alt="Data Management">
+        <img src="img/data-management.png" alt="Data Management">
     </div>
     <div class="feature reverse">
         <div class="feature-content">
             <h3>Cloud Strategy and Solutions</h3>
             <p>From migration to multi-cloud strategy design, our cloud solutions ensure your infrastructure is agile, secure, and optimized for efficiency. We work with AWS, Azure, and other leading platforms to create scalable cloud environments.</p>
         </div>
-        <img src="user-authentication.png" alt="User Authentication">
+        <img src="img/user-authentication.png" alt="User Authentication">
     </div>
     <div class="feature">
         <div class="feature-content">
             <h3>DevOps and CI/CD Consulting</h3>
             <p>Our DevOps experts help streamline software development pipelines by integrating continuous integration, automated testing, and deployment strategies, fostering collaboration and accelerating product delivery.</p>
         </div>
-        <img src="analytics-reporting.png" alt="Analytics & Reporting">
+        <img src="img/analytics-reporting.png" alt="Analytics & Reporting">
     </div>
 </section>
 
@@ -71,14 +72,23 @@
     <div class="portfolio-container">
         <div class="portfolio-item">
             <h4>Financial Tech Platform</h4>
-            <p>Architecting a high-performance microservices-based system for a leading financial institution.</p>
+            <p>Architected a microservices-based system for a leading financial institution, enhancing scalability and improving transaction processing times by 40%.</p>
         </div>
         <div class="portfolio-item">
             <h4>Healthcare SaaS Solution</h4>
-            <p>Built a scalable cloud-native solution to streamline healthcare management and patient care services.</p>
+            <p>Developed a cloud-native solution to streamline healthcare management, leading to a 30% increase in patient service efficiency.</p>
+        </div>
+        <div class="portfolio-item">
+            <h4>Cloud Migration for E-commerce</h4>
+            <p>Executed a full-scale AWS cloud migration for a global e-commerce brand, reducing operational costs by 25% and improving system uptime.</p>
+        </div>
+        <div class="portfolio-item">
+            <h4>DevOps Transformation for Telecom</h4>
+            <p>Implemented CI/CD pipelines for a telecom client, accelerating release cycles by 50% and improving overall system reliability.</p>
         </div>
     </div>
 </section>
+
 
 <!-- About Section -->
 <section id="about">
@@ -90,14 +100,15 @@
 <section id="contact">
     <h2>Get in Touch</h2>
     <p>Let’s discuss how we can bring value to your business.</p>
-    <form action="#">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+    <form id="contact-form">
+       <input type="text" name="name" placeholder="Your Name" required>
+       <input type="email" name="email" placeholder="Your Email" required>
+       <textarea name="message" placeholder="Your Message" required></textarea>
+       <button type="submit">Send Message</button>
     </form>
     <p>Email: auruminno@gmail.com | Phone: +44 (0) 7488 706094</p>
-</section>
+ </section>
+ 
 
 <!-- Footer -->
 <footer>
@@ -106,6 +117,27 @@
         <a href="#">LinkedIn</a> | <a href="#">Twitter</a> | <a href="#">Facebook</a>
     </div>
 </footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("nBOkrZwFuPDgGfXXy");
+    })();
+    </script>
+<script type="text/javascript">
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+       event.preventDefault(); // Prevent page refresh on form submission
+        
+       // Get form data
+       emailjs.sendForm('service_ku67v0q', 'template_qqnoahr', this)
+          .then(function(response) {
+             alert('Your message has been sent successfully!', response.status, response.text);
+          }, function(error) {
+             alert('Failed to send the message. Please try again.', error);
+          });
+    });
+ </script>
+ 
 
 </body>
 </html>
